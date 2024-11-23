@@ -1,0 +1,111 @@
+import { UserSchema } from "@/validation/user";
+import { z } from "zod";
+
+export type TUser = z.infer<typeof UserSchema>;
+export const users: TUser[] = [
+  {
+    fullName: "Alice Johnson",
+    email: "alice.johnson@example.com",
+    role: "Admin",
+    status: "active",
+    permission: ["read", "write", "delete"],
+  },
+  {
+    fullName: "Bob Smith",
+    email: "bob.smith@example.com",
+    role: "User",
+    status: "active",
+    permission: ["read"],
+  },
+  {
+    fullName: "Charlie Davis",
+    email: "charlie.davis@example.com",
+    role: "Moderator",
+    status: "inactive",
+    permission: ["read", "write"],
+  },
+  {
+    fullName: "Diana Moore",
+    email: "diana.moore@example.com",
+    role: "Admin",
+    status: "active",
+    permission: ["read", "write", "delete"],
+  },
+  {
+    fullName: "Ethan Brown",
+    email: "ethan.brown@example.com",
+    role: "User",
+    status: "inactive",
+    permission: ["read"],
+  },
+  {
+    fullName: "Fiona Wilson",
+    email: "fiona.wilson@example.com",
+    role: "User",
+    status: "active",
+    permission: ["read", "write"],
+  },
+  {
+    fullName: "George Taylor",
+    email: "george.taylor@example.com",
+    role: "Admin",
+    status: "active",
+    permission: ["read", "write", "delete"],
+  },
+  {
+    fullName: "Hannah Anderson",
+    email: "hannah.anderson@example.com",
+    role: "Moderator",
+    status: "inactive",
+    permission: ["read", "write"],
+  },
+  {
+    fullName: "Isaac Thomas",
+    email: "isaac.thomas@example.com",
+    role: "User",
+    status: "active",
+    permission: ["read"],
+  },
+  {
+    fullName: "Jasmine White",
+    email: "jasmine.white@example.com",
+    role: "Moderator",
+    status: "active",
+    permission: ["read", "write"],
+  },
+  {
+    fullName: "Laura Martin",
+    email: "laura.martin@example.com",
+    role: "Admin",
+    status: "active",
+    permission: ["read", "write", "delete"],
+  },
+  {
+    fullName: "Oliver Clark",
+    email: "oliver.clark@example.com",
+    role: "User",
+    status: "active",
+    permission: ["read", "write"],
+  },
+  {
+    fullName: "Rachel Young",
+    email: "rachel.young@example.com",
+    role: "Admin",
+    status: "inactive",
+    permission: ["read", "write", "delete"],
+  },
+  {
+    fullName: "Xavier Baker",
+    email: "xavier.baker@example.com",
+    role: "User",
+    status: "active",
+    permission: ["read", "write"],
+  },
+  {
+    fullName: "Yvonne Perez",
+    email: "yvonne.perez@example.com",
+    role: "Moderator",
+    status: "active",
+    permission: ["read", "write"],
+  },
+];
