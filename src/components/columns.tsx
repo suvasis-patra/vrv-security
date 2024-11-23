@@ -14,14 +14,6 @@ import { EditProfileDialog } from "./EditProfileDialog";
 import { EditProfileForm } from "./EditProfileForm";
 import { DeleteUserDialog } from "./DeleteUserDialog";
 
-const Trigger = ({ label }: { label: string }) => {
-  return (
-    <Button className="w-full" variant={"ghost"}>
-      {label}
-    </Button>
-  );
-};
-
 export const columns: ColumnDef<TUser>[] = [
   {
     accessorKey: "fullName",
@@ -107,18 +99,13 @@ export const columns: ColumnDef<TUser>[] = [
           <DropdownMenuContent align="end">
             <DropdownMenuLabel>Actions</DropdownMenuLabel>
             <DropdownMenuSeparator />
-            <div>
-              <EditProfileDialog
-                triggerElement={<Trigger label="Edit Profile" />}
-              >
+            <div className="py-1">
+              <EditProfileDialog>
                 <EditProfileForm user={userDetails} />
               </EditProfileDialog>
             </div>
-            <div>
-              <DeleteUserDialog
-                triggerElement={<Trigger label="delete" />}
-                user={userDetails}
-              />
+            <div className="py-1">
+              <DeleteUserDialog user={userDetails} />
             </div>
           </DropdownMenuContent>
         </DropdownMenu>

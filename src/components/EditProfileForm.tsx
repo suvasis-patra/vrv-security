@@ -51,7 +51,7 @@ export const EditProfileForm = ({ user }: { user: TUser }) => {
   };
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-2">
+      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-2 my-2">
         <FormField
           control={form.control}
           name="fullName"
@@ -134,7 +134,17 @@ export const EditProfileForm = ({ user }: { user: TUser }) => {
             </FormItem>
           )}
         />
-        <Button type="submit">Submit</Button>
+        <div className="w-full flex items-center gap-2 justify-end py-2">
+          <Button className="" type="button">
+            Cancel
+          </Button>
+          <Button
+            type="submit"
+            className="bg-blue-400 hover:bg-blue-200 hover:text-slate-950 transition duration-100"
+          >
+            Submit
+          </Button>
+        </div>
       </form>
     </Form>
   );

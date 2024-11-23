@@ -11,22 +11,25 @@ import {
 } from "./ui/dialog";
 import { useSetRecoilState } from "recoil";
 import { userDetailsAtom } from "@/store/atom/userDataAtom";
+import { useState } from "react";
 type DeleteUserDialogProps = {
-  triggerElement: React.ReactNode;
   user: TUser;
 };
 
-export const DeleteUserDialog = ({
-  triggerElement,
-  user,
-}: DeleteUserDialogProps) => {
+export const DeleteUserDialog = ({ user }: DeleteUserDialogProps) => {
+  const [isOpen, setIsOpen] = useState(false);
   const setUser = useSetRecoilState(userDetailsAtom);
   const deleteUser = () => {
     setUser((prev) => prev.filter((el) => el.email !== user.email));
+    setIsOpen(false);
   };
   return (
-    <Dialog>
-      <DialogTrigger>{triggerElement}</DialogTrigger>
+    <Dialog open={isOpen} onOpenChange={setIsOpen}>
+      <DialogTrigger className="flex justify-center w-full">
+        <Button className="w-full" variant={"ghost"}>
+          Delete
+        </Button>
+      </DialogTrigger>
       <DialogContent>
         <DialogHeader>
           <DialogTitle>Are you absolutely sure?</DialogTitle>
@@ -36,7 +39,7 @@ export const DeleteUserDialog = ({
           </DialogDescription>
         </DialogHeader>
         <DialogFooter className="flex items-center justify-end gap-2">
-          <Button>Cancel</Button>
+          <Button onClick={() => setIsOpen(false)}>Cancel</Button>
           <Button variant={"destructive"} onClick={deleteUser}>
             Delete
           </Button>

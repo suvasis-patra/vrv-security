@@ -6,26 +6,28 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "./ui/dialog";
+import { Button } from "./ui/button";
+import { useState } from "react";
 type EditProfileDialogProps = {
-  triggerElement: React.ReactNode;
   children: React.ReactNode;
 };
 
-export const EditProfileDialog = ({
-  triggerElement,
-  children,
-}: EditProfileDialogProps) => {
+export const EditProfileDialog = ({ children }: EditProfileDialogProps) => {
+  const [isOpen, setIsOpen] = useState(false);
   return (
-    <Dialog>
+    <Dialog onOpenChange={setIsOpen} open={isOpen}>
       <DialogTrigger className="flex justify-center w-full">
-        {triggerElement}
+        <Button
+          className="w-full"
+          variant={"ghost"}
+          onClick={() => setIsOpen(true)}
+        >
+          Edit Profile
+        </Button>
       </DialogTrigger>
-      <DialogContent aria-describedby="dialog-description">
+      <DialogContent className="">
         <DialogHeader>
           <DialogTitle>Edit user profile</DialogTitle>
-          <DialogDescription className="sr-only" id="dialog-description">
-            This is a form for editing user profile
-          </DialogDescription>
           <div>{children}</div>
         </DialogHeader>
       </DialogContent>
