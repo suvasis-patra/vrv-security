@@ -56,7 +56,7 @@ export function UserTable<TData, TValue>({
   return (
     <div className="max-w-5xl mx-auto flex flex-col gap-4 my-4 md:my-6 px-4 md:px-6">
       {" "}
-      <div className="flex items-center py-4">
+      <div className="flex gap-2 sm:justify-between sm:items-center flex-col sm:flex-row py-4">
         <Input
           placeholder="Search by name..."
           value={
@@ -68,8 +68,8 @@ export function UserTable<TData, TValue>({
           className="max-w-sm"
         />
         <DropdownMenu>
-          <DropdownMenuTrigger asChild>
-            <Button variant="outline" className="ml-auto">
+          <DropdownMenuTrigger asChild className="inline-flex">
+            <Button variant="outline" className="inline-flex">
               Columns <ChevronDown />
             </Button>
           </DropdownMenuTrigger>
